@@ -1,8 +1,7 @@
 :root {
     --primary: #2563ff;
-    --secondary: #a4e92e;
-    --tertiary: #8bf4fe;
-    --dark: #8e0738;
+    --secondary: #070f56;
+    /* --tertiary: #8bf4fe; */
     --border-radius: .3rem;
 }
 
@@ -48,4 +47,8 @@
 
 .card-title {
     font-size: 18px;
+}
+.card-5{
+    background-color: var(--secondary);
+    color: white;
 }
