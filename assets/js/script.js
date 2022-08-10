@@ -1,11 +1,16 @@
 var apiKey = "f3f7d17f109405ec564d7743e0ecdd7c";
-var latitude;
-var longitude;
+// var latitude;
+// var longitude;
 
-var getWeatherAPI = function () {
+var getWeatherAPI = function (longitude, latitude) {
+
+    console.log(longitude);
+    console.log(latitude);
+
     // format the OpenWeather api url
     var apiUrl = "https://api.openweathermap.org/data/2.5/onecall?" +
-        "lat=33.44&lon=-94.04&exclude=hourly,daily&appid=" + apiKey;
+        "lat=" + latitude + "&lon=" + longitude + "&exclude=hourly,daily"+
+        "&units=imperial&appid=" + apiKey;
 
     // make a request to the url
     fetch(apiUrl)
@@ -14,6 +19,9 @@ var getWeatherAPI = function () {
             if (response.ok) {
                 response.json().then(function (data) {
                     console.log(data);
+                    console.log(data.current.temp);
+                    var fToC = FahrenheitToCelcius(data.current.temp);
+                    console.log(fToC);
                 });
             } else {
                 alert('Error: Place Not Found on OpenWeatherAPI');
@@ -24,10 +32,10 @@ var getWeatherAPI = function () {
             alert("Unable to connect to OpenWeatherAPI");
         });
 };
-var getGeoAPI = function () {
+var getGeoAPI = function (place) {
     // format the OpenWeather Geo api url
-    var apiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + "New York"
-        +"&limit=1&appid=" + apiKey;
+    var apiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + place
+        + "&limit=1&appid=" + apiKey;
 
     // make a request to the url
     fetch(apiUrl)
@@ -35,11 +43,13 @@ var getGeoAPI = function () {
             // request was successful
             if (response.ok) {
                 response.json().then(function (data) {
-                    console.log(data);
-                    console.log(data[0].lat);
+                    // console.log(data);
                     //set longitude and latitude
-                    longitude = data[0].lon;
-                    latitude = data[0].lat;
+                    var longitude = data[0].lon;
+                    var latitude = data[0].lat;
+                    console.log(longitude);
+                    console.log(latitude);
+                    getWeatherAPI(longitude, latitude);
                 });
             } else {
                 alert('Error: Place Not Found on OpenWeatherGEOAPI');
@@ -50,5 +60,9 @@ var getGeoAPI = function () {
             alert("Unable to connect to OpenWeatherGEOAPI");
         });
 }
-getGeoAPI();
-getWeatherAPI();
+
+var FahrenheitToCelcius = function(fahrenheit){
+    return ((fahrenheit - 32) * 5 /9).toFixed(2); 
+}
+getGeoAPI("Ottawa");
+// getWeatherAPI();
