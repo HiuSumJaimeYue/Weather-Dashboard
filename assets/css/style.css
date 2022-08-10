@@ -1,0 +1,14 @@
+:root {
+    --primary: #2563ff;
+    --secondary: #a4e92e;
+    --tertiary: #8bf4fe;
+    --dark: #8e0738;
+    --border-radius: .3rem;
+  }
+.jumbotron {
+    text-align: center;
+    background-color: var(--primary);
+    color: white;
+    padding: 3px;
+    border-radius: var(--border-radius);
+}
