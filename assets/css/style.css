@@ -4,11 +4,48 @@
     --tertiary: #8bf4fe;
     --dark: #8e0738;
     --border-radius: .3rem;
-  }
+}
+
 .jumbotron {
     text-align: center;
     background-color: var(--primary);
     color: white;
     padding: 3px;
     border-radius: var(--border-radius);
+}
+
+.card-header {
+    margin-left: 11px;
+}
+
+.card-search {
+    margin-left: 10px;
+}
+
+.form-input {
+    width: 113%;
+    margin-left: -17px;
+}
+
+.card-buttons {
+    border: 0;
+    border-top: 2px solid black;
+    border-radius: 0;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.btn {
+    width: 100%;
+    width: 311px;
+    margin: 5px 0;
+    border-radius: var(--border-radius);
+}
+
+.box-on-top {
+    border: 1px solid black;
+}
+
+.card-title {
+    font-size: 18px;
 }

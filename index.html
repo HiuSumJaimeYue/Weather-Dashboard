@@ -15,6 +15,95 @@
         <h1>Weather Dashboard</h1>
     </header>
 
+    <main class="row min-vh-100">
+        <div class="col-12 col-md-4">
+            <div class="card border-0 card-search">
+                <h3 class="card-title">Search for a City:</h3>
+                <form id="city-form" class="card-body">
+                    <!-- <label class="form-label" for="cityname">Ottawa</label> -->
+                    <input name="cityname" id="cityname" placeholder="Ottawa" type="text" autofocus="true"
+                        class="form-input form-control" />
+                </form>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+            <div class="card card-buttons">
+                <div id="city-buttons">
+                    <button class="btn btn-secondary" data-language="javascript">JavaScript</button>
+                    <button class="btn btn-secondary" data-language="html">HTML</button>
+                    <button class="btn btn-secondary" data-language="css">CSS</button>
+                    <button type="button" class="btn btn-secondary">Primary</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-8">
+            <div class="box-on-top">
+                <h2>Box on top: <span id="repo-search-term"></span></h2>
+                <!-- multiple <p> -->
+                <div id="info-container" class="list-group">
+                    <p>hi</p>
+                    <p>hi</p>
+                </div>
+            </div>
+            <!-- cards? -->
+            <div id="repos-container">
+                <section class="row">
+                    <!-- Add classes to create a column that spans full width on smaller screens and 3/4 on larger screens -->
+                    <div class="col-12 col-md-8">
+                        <h2>5-Days Forecast:</h2>
+
+                        <!-- Add classes to create a row with content having space around it -->
+                        <section class="card-deck">
+                        
+                                <div class="card">
+                                    <h3 class="card-title">
+                                        Card 1
+                                    </h3>
+                                    <p class="card-text">
+                                        Lorem
+                                    </p>
+                                </div>
+                    
+                        
+                                <div class="card">
+                                    <h3 class="card-title">
+                                        Card 2
+                                    </h3>
+                                    <p class="card-text">
+                                        Lorem
+                                    </p>
+                                </div>
+
+                                <div class="card">
+                                    <h3 class="card-title">
+                                        Card 3
+                                    </h3>
+                                    <p class="card-text">
+                                        Lorem
+                                    </p>
+                                </div>
+                                <div class="card">
+                                    <h3 class="card-title">
+                                        Card 4
+                                    </h3>
+                                    <p class="card-text">
+                                        Lorem
+                                    </p>
+                                </div>
+                                <div class="card">
+                                    <h3 class="card-title">
+                                        Card 5
+                                    </h3>
+                                    <p class="card-text">
+                                        Lorem
+                                    </p>
+                                </div>
+                        </section>
+                    </div>
+            </div>
+        </div>
+    </main>
+
     <script src="./assets/js/script.js"></script>
 </body>
 
