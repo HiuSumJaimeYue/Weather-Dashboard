@@ -1,3 +1,11 @@
+var userFormEl = document.querySelector("#city-form");
+var nameInputEl = document.querySelector("#cityname");
+var boxTitleEl = document.querySelector("#box-city");
+var infoContainerEl = document.querySelector("#info-container");
+// var repoContainerEl = document.querySelector("#repos-container");
+// var repoSearchTerm = document.querySelector("#repo-search-term");
+// var languageButtonsEl = document.querySelector("#language-buttons");
+
 var apiKey = "f3f7d17f109405ec564d7743e0ecdd7c";
 // var latitude;
 // var longitude;
@@ -9,7 +17,7 @@ var getWeatherAPI = function (longitude, latitude) {
 
     // format the OpenWeather api url
     var apiUrl = "https://api.openweathermap.org/data/2.5/onecall?" +
-        "lat=" + latitude + "&lon=" + longitude + "&exclude=hourly,daily"+
+        "lat=" + latitude + "&lon=" + longitude + "&exclude=hourly,daily" +
         "&units=imperial&appid=" + apiKey;
 
     // make a request to the url
@@ -19,9 +27,10 @@ var getWeatherAPI = function (longitude, latitude) {
             if (response.ok) {
                 response.json().then(function (data) {
                     console.log(data);
-                    console.log(data.current.temp);
-                    var fToC = FahrenheitToCelcius(data.current.temp);
-                    console.log(fToC);
+                    // console.log(data.current.temp);
+                    // var fToC = FahrenheitToCelcius(data.current.temp);
+                    // console.log(fToC);
+                    displayWeather(data);
                 });
             } else {
                 alert('Error: Place Not Found on OpenWeatherAPI');
@@ -60,9 +69,22 @@ var getGeoAPI = function (place) {
             alert("Unable to connect to OpenWeatherGEOAPI");
         });
 }
+var displayWeather = function (weatherData) {
+    // box.style.display = 'flex';
+    //Clear old p
+    infoContainerEl.innerHTML = "";
+    var fToC = FahrenheitToCelcius(weatherData.current.temp);
+    console.log(fToC);
 
-var FahrenheitToCelcius = function(fahrenheit){
-    return ((fahrenheit - 32) * 5 /9).toFixed(2); 
+    //might add display:block and none 
+    boxTitleEl.textContent = "Search City";
+    var infoPEl = document.createElement("p");
+    infoPEl.textContent = "Temp: " + fToC + " °C";
+    infoContainerEl.append(infoPEl);
+}
+
+var FahrenheitToCelcius = function (fahrenheit) {
+    return ((fahrenheit - 32) * 5 / 9).toFixed(2);
 }
 getGeoAPI("Ottawa");
 // getWeatherAPI();
