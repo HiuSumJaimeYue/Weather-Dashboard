@@ -82,7 +82,10 @@ var displayWeather = function (weatherData) {
     var HumidityEl = document.createElement("p");
     HumidityEl.textContent = "Humidity: " + weatherData.current.humidity + " %";
     var uvIndexEl = document.createElement("p");
-    uvIndexEl.textContent = "UV Index: " + weatherData.current.uvi + "add color class";
+    // var uvIndexColorEl = document.createElement("span");
+    // uvIndexColorEl.textContent = weatherData.current.uvi;
+    uvIndexEl.innerHTML = "UV Index:  <span>"+weatherData.current.uvi+"</span>";
+    // uvIndexEl.textContent = "UV Index: " + uvIndexColorEl + "add color class";
 
     infoContainerEl.append(tempEl, windEl, HumidityEl, uvIndexEl);
 }

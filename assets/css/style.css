@@ -45,6 +45,13 @@
     border: 1px solid black;
 }
 
+.info p span{
+    background: green;
+    color: white;
+    border-radius: var(--border-radius);
+    padding: 1%;
+}
+
 .card-title {
     font-size: 18px;
 }
