@@ -58,8 +58,10 @@
 .card-5{
     background-color: var(--secondary);
     color: white;
+    padding-bottom: 15px;
 }
-.box-title img{
+.weatherImg {
     width: 55px;
     height: 55px;
 }
+/* .box-title img */
