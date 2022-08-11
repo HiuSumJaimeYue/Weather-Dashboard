@@ -43,10 +43,25 @@
 
 .box-on-top {
     border: 1px solid black;
+    padding: 1%;
 }
 
-.info p span {
+.favorable {
     background: green;
+    color: white;
+    border-radius: var(--border-radius);
+    padding: 1%;
+}
+
+.moderate {
+    background: yellow;
+    color: white;
+    border-radius: var(--border-radius);
+    padding: 1%;
+}
+
+.severe {
+    background: red;
     color: white;
     border-radius: var(--border-radius);
     padding: 1%;
@@ -59,7 +74,7 @@
 .card-5 {
     background-color: var(--secondary);
     color: white;
-    padding-bottom: 15px;
+    padding: 1%;
 }
 
 .weatherImg {

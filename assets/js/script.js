@@ -65,13 +65,11 @@ var getGeoAPI = function (place) {
         });
 }
 var displayWeather = function (weatherData) {
-    // box.style.display = 'flex';
     //Clear old p
     infoContainerEl.innerHTML = "";
     var fToC = FahrenheitToCelcius(weatherData.current.temp);
     var currentDate = moment().format('l');
 
-    //might add display:block and none 
     var iconWeather = weatherData.current.weather[0].icon;
     var iconSrc = "http://openweathermap.org/img/wn/" + iconWeather + "@2x.png";
 
@@ -83,19 +81,32 @@ var displayWeather = function (weatherData) {
     boxTitleEl.textContent = "Search City " + "(" + currentDate + ") ";
     boxTitleEl.appendChild(iconImg);
 
-    // uvIndexEl.innerHTML = "UV Index:  <span>" + uvIndex + "</span>";
     var tempEl = document.createElement("p");
     tempEl.textContent = "Temp: " + fToC + " °C";
     var windEl = document.createElement("p");
     windEl.textContent = "Wind: " + weatherData.current.wind_speed + " MPH";
     var HumidityEl = document.createElement("p");
     HumidityEl.textContent = "Humidity: " + weatherData.current.humidity + " %";
+
     var uvIndexEl = document.createElement("p");
+    var uvIndexcolorEl = document.createElement("span");
     var uvIndex = weatherData.current.uvi;
+    uvIndexcolorEl.textContent = uvIndex;
+    
     //Compare and put in different color
     //whether the conditions are favorable, moderate, or severe
+    uvIndexEl.textContent = "UV Index: ";
+    if(uvIndex < 3){
+        uvIndexcolorEl.classList.add("favorable");
+    }
+    else if(uvIndex >= 3 && uvIndex <=5){
+        uvIndexcolorEl.classList.add("moderate");
+    }
+    else{
+        uvIndexcolorEl.classList.add("severe");
+    }
 
-    uvIndexEl.innerHTML = "UV Index:  <span>" + uvIndex + "</span>";
+    uvIndexEl.appendChild(uvIndexcolorEl);
 
     infoContainerEl.append(tempEl, windEl, HumidityEl, uvIndexEl);
 
@@ -134,7 +145,6 @@ var displayWeather = function (weatherData) {
 
         card5DaysContainerEl.append(card5);
     }
-
 }
 
 var FahrenheitToCelcius = function (fahrenheit) {
