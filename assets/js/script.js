@@ -68,14 +68,11 @@ var displayWeather = function (weatherData) {
     // box.style.display = 'flex';
     //Clear old p
     infoContainerEl.innerHTML = "";
-    var fToC = FahrenheitToCelcius(weatherData.current.temp);;
-
+    var fToC = FahrenheitToCelcius(weatherData.current.temp);
     var currentDate = moment().format('l');
-    console.log(currentDate);
 
     //might add display:block and none 
     var iconWeather = weatherData.current.weather[0].icon;
-    console.log(iconWeather);
     var iconSrc = "http://openweathermap.org/img/wn/" + iconWeather + "@2x.png";
 
     var iconImg = document.createElement('img');
@@ -104,25 +101,16 @@ var displayWeather = function (weatherData) {
 
 
     //5-Day Forecast
-    var nextDate = moment().add(1, 'days').format('l');
-    console.log(nextDate);
-    //     <h3 class="card-title">
-    //     Card 2
-    // </h3>
-    // <p class="card-text">
-    //     Lorem
-    // </p>
-    // </div >
-
     for (var i = 0; i < 5; i++) {
-        var iconWeather2 = weatherData.current.weather[0].icon;
-        console.log(iconWeather2);
-        var iconSrc2 = "http://openweathermap.org/img/wn/" + iconWeather2 + "@2x.png";
+        var currentDailyWeather = weatherData.daily[i];
+        var cardIconWeather = currentDailyWeather.weather[0].icon;
+        var iconSrc2 = "http://openweathermap.org/img/wn/" + cardIconWeather + "@2x.png";
 
         var card5 = document.createElement("div");
         card5.classList.add("card", "card-5");
 
         var cardDate = document.createElement("h3");
+        var nextDate = moment().add((i + 1), 'days').format('l');
         cardDate.textContent = nextDate;
         cardDate.classList.add("card-title");
 
@@ -131,15 +119,15 @@ var displayWeather = function (weatherData) {
         iconImg2.alt = "weatherIcon";
         iconImg2.classList.add("weatherImg");
 
-
         var cardTempEl = document.createElement("p");
-        cardTempEl.textContent = "Temp: " + fToC + " °C";
+        var cardfToC = FahrenheitToCelcius(currentDailyWeather.temp.day);
+        cardTempEl.textContent = "Temp: " + cardfToC + " °C";
         cardTempEl.classList.add("card-text");
         var cardWindEl = document.createElement("p");
-        cardWindEl.textContent = "Wind: " + weatherData.current.wind_speed + " MPH";
+        cardWindEl.textContent = "Wind: " + currentDailyWeather.wind_speed + " MPH";
         cardWindEl.classList.add("card-text");
         var cardHumidityEl = document.createElement("p");
-        cardHumidityEl.textContent = "Humidity: " + weatherData.current.humidity + " %";
+        cardHumidityEl.textContent = "Humidity: " + currentDailyWeather.humidity + " %";
         cardHumidityEl.classList.add("card-text");
 
         card5.append(cardDate, iconImg2, cardTempEl, cardWindEl, cardHumidityEl);

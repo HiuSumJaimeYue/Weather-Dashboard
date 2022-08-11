@@ -1,6 +1,6 @@
 :root {
     --primary: #2563ff;
-    --secondary: #070f56;
+    --secondary: #484b64;
     /* --tertiary: #8bf4fe; */
     --border-radius: .3rem;
 }
@@ -45,7 +45,7 @@
     border: 1px solid black;
 }
 
-.info p span{
+.info p span {
     background: green;
     color: white;
     border-radius: var(--border-radius);
@@ -55,13 +55,16 @@
 .card-title {
     font-size: 18px;
 }
-.card-5{
+
+.card-5 {
     background-color: var(--secondary);
     color: white;
     padding-bottom: 15px;
 }
+
 .weatherImg {
     width: 55px;
     height: 55px;
 }
+
 /* .box-title img */
