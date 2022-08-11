@@ -27,9 +27,6 @@ var getWeatherAPI = function (longitude, latitude) {
             if (response.ok) {
                 response.json().then(function (data) {
                     console.log(data);
-                    // console.log(data.current.temp);
-                    // var fToC = FahrenheitToCelcius(data.current.temp);
-                    // console.log(fToC);
                     displayWeather(data);
                 });
             } else {
@@ -56,8 +53,8 @@ var getGeoAPI = function (place) {
                     //set longitude and latitude
                     var longitude = data[0].lon;
                     var latitude = data[0].lat;
-                    console.log(longitude);
-                    console.log(latitude);
+                    // console.log(longitude);
+                    // console.log(latitude);
                     getWeatherAPI(longitude, latitude);
                 });
             } else {
@@ -77,10 +74,17 @@ var displayWeather = function (weatherData) {
     console.log(fToC);
 
     //might add display:block and none 
-    boxTitleEl.textContent = "Search City";
-    var infoPEl = document.createElement("p");
-    infoPEl.textContent = "Temp: " + fToC + " °C";
-    infoContainerEl.append(infoPEl);
+    boxTitleEl.textContent = "Search City " + "(" + "DATE" + ") " + "img";
+    var tempEl = document.createElement("p");
+    tempEl.textContent = "Temp: " + fToC + " °C";
+    var windEl = document.createElement("p");
+    windEl.textContent = "Wind: " + weatherData.current.wind_speed + " MPH";
+    var HumidityEl = document.createElement("p");
+    HumidityEl.textContent = "Humidity: " + weatherData.current.humidity + " %";
+    var uvIndexEl = document.createElement("p");
+    uvIndexEl.textContent = "UV Index: " + weatherData.current.uvi + "add color class";
+
+    infoContainerEl.append(tempEl, windEl, HumidityEl, uvIndexEl);
 }
 
 var FahrenheitToCelcius = function (fahrenheit) {
