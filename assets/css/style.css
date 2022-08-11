@@ -59,3 +59,7 @@
     background-color: var(--secondary);
     color: white;
 }
+.box-title img{
+    width: 55px;
+    height: 55px;
+}

@@ -17,7 +17,7 @@ var getWeatherAPI = function (longitude, latitude) {
 
     // format the OpenWeather api url
     var apiUrl = "https://api.openweathermap.org/data/2.5/onecall?" +
-        "lat=" + latitude + "&lon=" + longitude + "&exclude=hourly,daily" +
+        "lat=" + latitude + "&lon=" + longitude + "&exclude=hourly,minutely" +
         "&units=imperial&appid=" + apiKey;
 
     // make a request to the url
@@ -73,8 +73,25 @@ var displayWeather = function (weatherData) {
     var fToC = FahrenheitToCelcius(weatherData.current.temp);
     console.log(fToC);
 
+
+    var currentDate = moment().format('l');
+    console.log(currentDate);
+    // var nextDate = moment().add(1, 'days').format('l');  
+    // console.log(nextDate);
+
     //might add display:block and none 
-    boxTitleEl.textContent = "Search City " + "(" + "DATE" + ") " + "img";
+    var iconWeather = weatherData.current.weather[0].icon;
+    console.log(iconWeather);
+    var iconSrc = "http://openweathermap.org/img/wn/" + iconWeather + "@2x.png";
+
+    var iconImg = document.createElement('img');
+    iconImg.src = iconSrc;
+    iconImg.alt = "weatherIcon";
+
+    boxTitleEl.textContent = "Search City " + "(" + currentDate + ") ";
+    boxTitleEl.appendChild(iconImg);
+
+    // uvIndexEl.innerHTML = "UV Index:  <span>" + uvIndex + "</span>";
     var tempEl = document.createElement("p");
     tempEl.textContent = "Temp: " + fToC + " °C";
     var windEl = document.createElement("p");
@@ -82,10 +99,12 @@ var displayWeather = function (weatherData) {
     var HumidityEl = document.createElement("p");
     HumidityEl.textContent = "Humidity: " + weatherData.current.humidity + " %";
     var uvIndexEl = document.createElement("p");
-    // var uvIndexColorEl = document.createElement("span");
-    // uvIndexColorEl.textContent = weatherData.current.uvi;
-    uvIndexEl.innerHTML = "UV Index:  <span>"+weatherData.current.uvi+"</span>";
-    // uvIndexEl.textContent = "UV Index: " + uvIndexColorEl + "add color class";
+
+    var uvIndex = weatherData.current.uvi;
+    //Compare and put in different color
+    //whether the conditions are favorable, moderate, or severe
+
+    uvIndexEl.innerHTML = "UV Index:  <span>" + uvIndex + "</span>";
 
     infoContainerEl.append(tempEl, windEl, HumidityEl, uvIndexEl);
 }
@@ -93,5 +112,5 @@ var displayWeather = function (weatherData) {
 var FahrenheitToCelcius = function (fahrenheit) {
     return ((fahrenheit - 32) * 5 / 9).toFixed(2);
 }
-getGeoAPI("Ottawa");
+getGeoAPI("London");
 // getWeatherAPI();
