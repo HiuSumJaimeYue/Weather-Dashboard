@@ -19,17 +19,20 @@ function formSubmit(event) {
     if (cityInput) {
         console.log("input in");
         //If not in List add to List 
-        if (true){
+        if (true) {
             console.log("pushed");
             cityList.push(cityInput);
 
             //save into localStorage
             localStorage.setItem("City history", JSON.stringify(cityList));
-    
+
             // createCityButton();
         }
         //show results
         // getWeatherAPI(cityInput);
+
+        // clear old content
+        cityInputEl.value = "";
 
     }
 }
@@ -76,13 +79,21 @@ var getGeoAPI = function (place) {
             // request successful
             if (response.ok) {
                 response.json().then(function (data) {
-                    // console.log(data);
-                    //set longitude and latitude
-                    var longitude = data[0].lon;
-                    var latitude = data[0].lat;
-                    // console.log(longitude);
-                    // console.log(latitude);
-                    getWeatherAPI(longitude, latitude);
+                    //Not a name of a city
+                    if (data.length < 1) {
+                        //Request to type again
+                        //The requested city information cannot be reached. Please try again.
+                        console.log("empty");
+                        //askToInputAgain();
+                    } else {
+                        console.log(data);
+                        //set longitude and latitude
+                        var longitude = data[0].lon;
+                        var latitude = data[0].lat;
+                        // console.log(longitude);
+                        // console.log(latitude);
+                        getWeatherAPI(longitude, latitude);
+                    }
                 });
             } else {
                 alert('Error: Place Not Found on OpenWeatherGEOAPI');
@@ -184,6 +195,6 @@ var FahrenheitToCelcius = function (fahrenheit) {
     return ((fahrenheit - 32) * 5 / 9).toFixed(2);
 }
 
-getGeoAPI("London");
+getGeoAPI("qwe");
 // getWeatherAPI();
 cityFormEl.addEventListener("submit", formSubmit);
