@@ -15,10 +15,10 @@ Github repository: https://github.com/HiuSumJaimeYue/Weather-Dashboard
 
 Screenshots:     
 If you have searched before
-![Weather-Dashboard Preview 1](https://github.com/HiuSumJaimeYue/Weather-Dashboard/blob/main/screenshots/weatherDashboardPreview1.jpg "Weather-Dashboard Preview 1")  
+![Weather-Dashboard Preview 1](https://github.com/HiuSumJaimeYue/Weather-Dashboard/blob/main/screenshots/weatherDashboardPreview2.jpg "Weather-Dashboard Preview 1")  
 If you have never searched before ...       
 Before searching 
-![Weather-Dashboard Preview 2](https://github.com/HiuSumJaimeYue/Weather-Dashboard/blob/main/screenshots/weatherDashboardPreview2.jpg "Weather-Dashboard Preview 2")            
+![Weather-Dashboard Preview 2](https://github.com/HiuSumJaimeYue/Weather-Dashboard/blob/main/screenshots/weatherDashboardPreview1.jpg "Weather-Dashboard Preview 2")            
 After successfully search for weather information for the requested city
 ![Weather-Dashboard Preview 3](https://github.com/HiuSumJaimeYue/Weather-Dashboard/blob/main/screenshots/weatherDashboardPreview3.jpg "Weather-Dashboard Preview 3")       
 Or fail to get the information of the requested city   
