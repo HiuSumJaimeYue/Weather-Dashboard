@@ -26,10 +26,6 @@ function formSubmit(event) {
 
 //get WeatherAPI
 var getWeatherAPI = function (longitude, latitude, cityName) {
-
-    console.log(longitude);
-    console.log(latitude);
-
     // format the OpenWeather api url
     var apiUrl = "https://api.openweathermap.org/data/2.5/onecall?" +
         "lat=" + latitude + "&lon=" + longitude + "&exclude=hourly,minutely" +
@@ -41,10 +37,10 @@ var getWeatherAPI = function (longitude, latitude, cityName) {
             // request successful
             if (response.ok) {
                 response.json().then(function (data) {
-                    console.log(data);
+                    // console.log(data);
                     displayWeather(data, cityName);
                     //If not in List add to List 
-                    if (true) {
+                    if (!cityList.includes(cityName)) {
                         cityList.push(cityName);
 
                         //save into localStorage
@@ -86,9 +82,8 @@ var getGeoAPI = function (place) {
                         //set longitude and latitude
                         var longitude = data[0].lon;
                         var latitude = data[0].lat;
-                        // console.log(longitude);
-                        // console.log(latitude);
-                        getWeatherAPI(longitude, latitude, place);
+                        var citySearch = data[0].name;
+                        getWeatherAPI(longitude, latitude, citySearch);
                     }
                 });
             } else {
