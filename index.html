@@ -15,50 +15,50 @@
         <h1>Weather Dashboard</h1>
     </header>
 
-    <main class="container">
+    <main class="main-container">
         <section class="row min-vh-100">
-        <div class="col-12 col-md-4">
-            <div class="card border-0">
-                <h3 class="card-title">Search for a City:</h3>
-                <form id="city-form" class="card-body">
-                    <input name="cityname" id="cityname" placeholder="Ottawa" type="text" autofocus="true"
-                        class="form-input form-control" />
-                </form>
-                <button type="submit" class="btn btn-primary">Search</button>
-            </div>
-            <div class="card card-buttons">
-                <div id="city-buttons">
-                    <button class="btn btn-secondary" data-language="javascript">JavaScript</button>
-                    <button class="btn btn-secondary" data-language="html">HTML</button>
-                    <button class="btn btn-secondary" data-language="css">CSS</button>
-                    <button type="button" class="btn btn-secondary">Primary</button>
+            <div class="col-12 col-md-4">
+                <div class="card border-0">
+                    <h3 class="card-title">Search for a City:</h3>
+                    <form id="city-form" class="card-body">
+                        <input name="cityname" id="cityname" placeholder="Ottawa" type="text" autofocus="true"
+                            class="form-input form-control" />
+                    </form>
+                    <button type="submit" class="btn btn-primary">Search</button>
                 </div>
-            </div>
-        </div>
-    
-
-        <div class="col-12 col-md-8">
-            <div class="box-on-top">
-                <h2 class="box-title" id="box-city"><span id="repo-search-term"></span></h2>
-                <!-- multiple <p> -->
-                <div id="info-container" class="info">
-                </div>
-            </div>
-            <!-- cards? -->
-            <div id="cards-container">
-                <section class="row">
-                    <!-- Add classes to create a column that spans full width on smaller screens and 3/4 on larger screens -->
-                    <div class="col-12">
-                        <h2>5-Days Forecast:</h2>
-
-                        <!-- Add classes to create a row with content having space around it -->
-                        <section class="card-deck" id="card-5-Day">
-
-                        </section>
+                <div class="card card-buttons">
+                    <div id="city-buttons">
+                        <button class="btn btn-secondary" data-language="javascript">JavaScript</button>
+                        <button class="btn btn-secondary" data-language="html">HTML</button>
+                        <button class="btn btn-secondary" data-language="css">CSS</button>
+                        <button type="button" class="btn btn-secondary">Primary</button>
                     </div>
+                </div>
             </div>
-        </div>
-    </section>
+
+
+            <div class="col-12 col-md-8">
+                <div class="box-on-top">
+                    <h2 class="box-title" id="box-city"><span id="repo-search-term"></span></h2>
+                    <!-- multiple <p> -->
+                    <div id="info-container" class="info">
+                    </div>
+                </div>
+                <!-- cards? -->
+                <div id="cards-container">
+                    <section class="row">
+                        <!-- Add classes to create a column that spans full width on smaller screens and 3/4 on larger screens -->
+                        <div class="col-12">
+                            <h2>5-Days Forecast:</h2>
+
+                            <!-- Add classes to create a row with content having space around it -->
+                            <section class="card-deck" id="card-5-Day">
+
+                            </section>
+                        </div>
+                </div>
+            </div>
+        </section>
     </main>
 
 

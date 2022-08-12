@@ -92,17 +92,17 @@ var displayWeather = function (weatherData) {
     var uvIndexcolorEl = document.createElement("span");
     var uvIndex = weatherData.current.uvi;
     uvIndexcolorEl.textContent = uvIndex;
-    
+
     //Compare and put in different color
     //whether the conditions are favorable, moderate, or severe
     uvIndexEl.textContent = "UV Index: ";
-    if(uvIndex < 3){
+    if (uvIndex < 3) {
         uvIndexcolorEl.classList.add("favorable");
     }
-    else if(uvIndex >= 3 && uvIndex <=5){
+    else if (uvIndex >= 3 && uvIndex <= 5) {
         uvIndexcolorEl.classList.add("moderate");
     }
-    else{
+    else {
         uvIndexcolorEl.classList.add("severe");
     }
 
@@ -122,8 +122,6 @@ var displayWeather = function (weatherData) {
         var nextDate = moment().add((i + 1), 'days').format('l');
         cardDate.textContent = nextDate;
         cardDate.classList.add("card-title");
-
-        
 
         var iconImg2 = document.createElement('img');
         var cardIconWeather = currentDailyWeather.weather[0].icon;

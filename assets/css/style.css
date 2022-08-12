@@ -5,12 +5,24 @@
     --border-radius: .3rem;
 }
 
+body {
+    line-height: 1;
+    font-size: 16px;
+    /* Using default font-family */
+}
+
 .jumbotron {
     text-align: center;
     background-color: var(--primary);
     color: white;
     padding: 3px;
     border-radius: var(--border-radius);
+}
+
+.main-container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 .form-input {
@@ -72,5 +84,3 @@
     width: 55px;
     height: 55px;
 }
-
-/* .box-title img */
