@@ -4,10 +4,11 @@ var cityList = [];
 
 var cityFormEl = document.querySelector("#city-form");
 var cityInputEl = document.querySelector("#cityname");
+
+var weatherInfoEl = document.querySelector("#weather-Info");
 var boxTitleEl = document.querySelector("#box-city");
 var infoContainerEl = document.querySelector("#info-container");
 var card5DaysContainerEl = document.querySelector("#card-5-Day");
-// var repoSearchTerm = document.querySelector("#repo-search-term");
 // var languageButtonsEl = document.querySelector("#language-buttons");
 
 //get value from input element for high scores
@@ -98,7 +99,9 @@ var getGeoAPI = function (place) {
 
 //display the weather data 
 var displayWeather = function (weatherData, city) {
-    //Box on top
+    //show weather info
+    weatherInfoEl.style.display = 'block';
+
     //Clear old info
     infoContainerEl.innerHTML = "";
     card5DaysContainerEl.innerHTML = "";

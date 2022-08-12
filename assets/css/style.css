@@ -29,6 +29,7 @@ body {
     padding-left: 15px;
 }
 
+/* On the left */
 .card-buttons {
     border: 0;
     border-top: 2px solid black;
@@ -42,6 +43,7 @@ body {
     border-radius: var(--border-radius);
 }
 
+/* On the right */
 .box-on-top {
     border: 1px solid black;
     padding: 1%;
@@ -82,4 +84,7 @@ body {
 .weatherImg {
     width: 55px;
     height: 55px;
+}
+#weather-Info{
+    display: none;
 }
