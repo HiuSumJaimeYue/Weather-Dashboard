@@ -14,31 +14,18 @@ var card5DaysContainerEl = document.querySelector("#card-5-Day");
 function formSubmit(event) {
     event.preventDefault();
 
-    console.log("clicked");
     var cityInput = cityInputEl.value.trim();
     if (cityInput) {
-        console.log("input in");
-        //If not in List add to List 
-        if (true) {
-            console.log("pushed");
-            cityList.push(cityInput);
-
-            //save into localStorage
-            localStorage.setItem("City history", JSON.stringify(cityList));
-
-            // createCityButton();
-        }
         //show results
-        // getWeatherAPI(cityInput);
+        getGeoAPI(cityInput);
 
         // clear old content
         cityInputEl.value = "";
-
     }
 }
 
 //get WeatherAPI
-var getWeatherAPI = function (longitude, latitude) {
+var getWeatherAPI = function (longitude, latitude, cityName) {
 
     console.log(longitude);
     console.log(latitude);
@@ -55,7 +42,16 @@ var getWeatherAPI = function (longitude, latitude) {
             if (response.ok) {
                 response.json().then(function (data) {
                     console.log(data);
-                    displayWeather(data);
+                    displayWeather(data, cityName);
+                    //If not in List add to List 
+                    if (true) {
+                        cityList.push(cityName);
+
+                        //save into localStorage
+                        localStorage.setItem("City history", JSON.stringify(cityList));
+
+                        // createCityButton();
+                    }
                 });
             } else {
                 alert('Error: Place Not Found on OpenWeatherAPI');
@@ -92,7 +88,7 @@ var getGeoAPI = function (place) {
                         var latitude = data[0].lat;
                         // console.log(longitude);
                         // console.log(latitude);
-                        getWeatherAPI(longitude, latitude);
+                        getWeatherAPI(longitude, latitude, place);
                     }
                 });
             } else {
@@ -106,10 +102,12 @@ var getGeoAPI = function (place) {
 }
 
 //display the weather data 
-var displayWeather = function (weatherData) {
+var displayWeather = function (weatherData, city) {
     //Box on top
-    //Clear old p
+    //Clear old info
     infoContainerEl.innerHTML = "";
+    card5DaysContainerEl.innerHTML = "";
+
     var fToC = FahrenheitToCelcius(weatherData.current.temp);
     var currentDate = moment().format('l');
 
@@ -121,7 +119,7 @@ var displayWeather = function (weatherData) {
     iconImg.alt = "weatherIcon";
     iconImg.classList.add("weatherImg");
 
-    boxTitleEl.textContent = "Search City " + "(" + currentDate + ") ";
+    boxTitleEl.textContent = city + " (" + currentDate + ") ";
     boxTitleEl.appendChild(iconImg);
 
     var tempEl = document.createElement("p");
@@ -195,6 +193,4 @@ var FahrenheitToCelcius = function (fahrenheit) {
     return ((fahrenheit - 32) * 5 / 9).toFixed(2);
 }
 
-getGeoAPI("qwe");
-// getWeatherAPI();
 cityFormEl.addEventListener("submit", formSubmit);
