@@ -12,7 +12,7 @@ var boxTitleEl = document.querySelector("#box-city");
 var infoContainerEl = document.querySelector("#info-container");
 var cardsContainerEl = document.querySelector("#cards-container");
 var card5DaysContainerEl = document.querySelector("#card-5-Day");
-// var languageButtonsEl = document.querySelector("#language-buttons");
+var cityButtonsEl = document.querySelector("#city-buttons");
 
 //get value from input element for city
 function formSubmit(event) {
@@ -25,6 +25,13 @@ function formSubmit(event) {
 
         // clear old content
         cityInputEl.value = "";
+    }
+}
+
+var buttonClickHandler = function (event) {
+    var city = event.target.getAttribute("data-city");
+    if (city) {
+        getGeoAPI(city);
     }
 }
 
@@ -41,7 +48,6 @@ var getWeatherAPI = function (longitude, latitude, cityName) {
             // request successful
             if (response.ok) {
                 response.json().then(function (data) {
-                    // console.log(data);
                     displayWeather(data, cityName);
                     //If not in List, add to List 
                     if (!cityList.includes(cityName)) {
@@ -50,7 +56,8 @@ var getWeatherAPI = function (longitude, latitude, cityName) {
                         //save into localStorage
                         localStorage.setItem("City history", JSON.stringify(cityList));
 
-                        // createCityButton();
+                        //create Button for city
+                        createCityButton(cityName);
                     }
                 });
             } else {
@@ -80,7 +87,6 @@ var getGeoAPI = function (place) {
                         //Request to type again
                         askToInputAgain();
                     } else {
-                        console.log(data);
                         //set longitude and latitude
                         var longitude = data[0].lon;
                         var latitude = data[0].lat;
@@ -203,4 +209,13 @@ var askToInputAgain = function () {
     cardsContainerEl.style.display = 'none';
 }
 
+var createCityButton = function (cityName) {
+    var cityBtnEl = document.createElement("button");
+    cityBtnEl.classList.add("btn", "btn-secondary");
+    cityBtnEl.innerHTML = cityName;
+    cityBtnEl.setAttribute("data-city", cityName);
+    cityButtonsEl.append(cityBtnEl);
+}
+
 cityFormEl.addEventListener("submit", formSubmit);
+cityButtonsEl.addEventListener("click", buttonClickHandler);
