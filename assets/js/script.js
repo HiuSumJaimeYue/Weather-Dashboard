@@ -92,7 +92,7 @@ var getWeatherAPI = function (longitude, latitude, cityName) {
 //get GeoWeatherAPI to take longitude and latitude for getWeatherAPI
 var getGeoAPI = function (place) {
     // format the OpenWeather Geo api url
-    var apiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + place
+    var apiUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + place
         + "&limit=1&appid=" + apiKey;
 
     // make a request to the url
@@ -167,7 +167,7 @@ var displayWeather = function (weatherData, city) {
     if (uvIndex < 3) {
         uvIndexcolorEl.classList.add("favorable");
     }
-    else if (uvIndex >= 3 && uvIndex <= 5) {
+    else if (uvIndex >= 3 && uvIndex <= 6) {
         uvIndexcolorEl.classList.add("moderate");
     }
     else {
