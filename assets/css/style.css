@@ -91,3 +91,18 @@ body {
 #weather-Info {
     display: none;
 }
+
+/*For card word "Humidity to show fully on tablet"*/
+/* MEDIA QUERY for tablets*/
+@media screen and (max-width: 768px) {
+    .card-text:last-child {
+        font-size: 14px;
+    }
+}
+
+/*MEDIA QUERY for Mobile*/
+@media screen and (max-width: 490px) {
+    .card-text:last-child {
+        font-size: 16px;
+    }
+}
