@@ -15,16 +15,16 @@ Github repository: https://github.com/HiuSumJaimeYue/Weather-Dashboard
 
 Screenshots:     
 If you have searched before
-![Weather-Dashboard Preview 1](web "Weather-Dashboard Preview 1")  
+![Weather-Dashboard Preview 1](https://github.com/HiuSumJaimeYue/Weather-Dashboard/blob/main/screenshots/weatherDashboardPreview1.jpg "Weather-Dashboard Preview 1")  
 If you have never searched before ...       
 Before searching 
-![Weather-Dashboard Preview 2](web "Weather-Dashboard Preview 2")            
+![Weather-Dashboard Preview 2](https://github.com/HiuSumJaimeYue/Weather-Dashboard/blob/main/screenshots/weatherDashboardPreview2.jpg "Weather-Dashboard Preview 2")            
 After successfully search for weather information for the requested city
-![Weather-Dashboard Preview 3](web "Weather-Dashboard Preview 3")       
+![Weather-Dashboard Preview 3](https://github.com/HiuSumJaimeYue/Weather-Dashboard/blob/main/screenshots/weatherDashboardPreview3.jpg "Weather-Dashboard Preview 3")       
 Or fail to get the information of the requested city   
-![Weather-Dashboard Preview 4](web "Weather-Dashboard Preview 4")      
+![Weather-Dashboard Preview 4](https://github.com/HiuSumJaimeYue/Weather-Dashboard/blob/main/screenshots/weatherDashboardPreview4.jpg "Weather-Dashboard Preview 4")      
 View on Tablet
-![Weather-Dashboard Preview 5](web "Weather-Dashboard Preview 5")      
+![Weather-Dashboard Preview 5](https://github.com/HiuSumJaimeYue/Weather-Dashboard/blob/main/screenshots/weatherDashboardPreview5.jpg "Weather-Dashboard Preview 5")      
 View on mobile
-![Weather-Dashboard Preview 6](web "Weather-Dashboard Preview 6")      
-![Weather-Dashboard Preview 7](web "Weather-Dashboard Preview 7")  
+![Weather-Dashboard Preview 6](https://github.com/HiuSumJaimeYue/Weather-Dashboard/blob/main/screenshots/weatherDashboardPreview6.jpg "Weather-Dashboard Preview 6")      
+![Weather-Dashboard Preview 7](https://github.com/HiuSumJaimeYue/Weather-Dashboard/blob/main/screenshots/weatherDashboardPreview7.jpg "Weather-Dashboard Preview 7")  
