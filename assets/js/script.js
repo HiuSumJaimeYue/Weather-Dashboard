@@ -1,13 +1,40 @@
-var userFormEl = document.querySelector("#city-form");
-var nameInputEl = document.querySelector("#cityname");
+//API Key for WeatherAPI and GeoWeatherAPI
+var apiKey = "f3f7d17f109405ec564d7743e0ecdd7c";
+var cityList = [];
+
+var cityFormEl = document.querySelector("#city-form");
+var cityInputEl = document.querySelector("#cityname");
 var boxTitleEl = document.querySelector("#box-city");
 var infoContainerEl = document.querySelector("#info-container");
 var card5DaysContainerEl = document.querySelector("#card-5-Day");
 // var repoSearchTerm = document.querySelector("#repo-search-term");
 // var languageButtonsEl = document.querySelector("#language-buttons");
 
-var apiKey = "f3f7d17f109405ec564d7743e0ecdd7c";
+//get value from input element for high scores
+function formSubmit(event) {
+    event.preventDefault();
 
+    console.log("clicked");
+    var cityInput = cityInputEl.value.trim();
+    if (cityInput) {
+        console.log("input in");
+        //If not in List add to List 
+        if (true){
+            console.log("pushed");
+            cityList.push(cityInput);
+
+            //save into localStorage
+            localStorage.setItem("City history", JSON.stringify(cityList));
+    
+            // createCityButton();
+        }
+        //show results
+        // getWeatherAPI(cityInput);
+
+    }
+}
+
+//get WeatherAPI
 var getWeatherAPI = function (longitude, latitude) {
 
     console.log(longitude);
@@ -36,6 +63,8 @@ var getWeatherAPI = function (longitude, latitude) {
             alert("Unable to connect to OpenWeatherAPI");
         });
 };
+
+//get GeoWeatherAPI to take longitude and latitude for getWeatherAPI
 var getGeoAPI = function (place) {
     // format the OpenWeather Geo api url
     var apiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + place
@@ -64,7 +93,10 @@ var getGeoAPI = function (place) {
             alert("Unable to connect to OpenWeatherGEOAPI");
         });
 }
+
+//display the weather data 
 var displayWeather = function (weatherData) {
+    //Box on top
     //Clear old p
     infoContainerEl.innerHTML = "";
     var fToC = FahrenheitToCelcius(weatherData.current.temp);
@@ -147,8 +179,11 @@ var displayWeather = function (weatherData) {
     }
 }
 
+//get the temp from Fahrenheit to Celcius
 var FahrenheitToCelcius = function (fahrenheit) {
     return ((fahrenheit - 32) * 5 / 9).toFixed(2);
 }
+
 getGeoAPI("London");
 // getWeatherAPI();
+cityFormEl.addEventListener("submit", formSubmit);

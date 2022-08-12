@@ -20,11 +20,12 @@
             <div class="col-12 col-md-4">
                 <div class="card border-0">
                     <h3 class="card-title">Search for a City:</h3>
-                    <form id="city-form" class="card-body">
+                    <form id="city-form">
                         <input name="cityname" id="cityname" placeholder="Ottawa" type="text" autofocus="true"
                             class="form-input form-control" />
+                            <button type="submit" class="btn btn-primary">Search</button>
                     </form>
-                    <button type="submit" class="btn btn-primary">Search</button>
+
                 </div>
                 <div class="card card-buttons">
                     <div id="city-buttons">
@@ -36,7 +37,6 @@
                 </div>
             </div>
 
-
             <div class="col-12 col-md-8">
                 <div class="box-on-top">
                     <h2 class="box-title" id="box-city"><span id="repo-search-term"></span></h2>
@@ -44,18 +44,16 @@
                     <div id="info-container" class="info">
                     </div>
                 </div>
-                <!-- cards? -->
+                <!-- 5 cards container -->
                 <div id="cards-container">
                     <section class="row">
-                        <!-- Add classes to create a column that spans full width on smaller screens and 3/4 on larger screens -->
                         <div class="col-12">
                             <h2>5-Days Forecast:</h2>
-
-                            <!-- Add classes to create a row with content having space around it -->
+                            <!-- 5 cards -->
                             <section class="card-deck" id="card-5-Day">
-
                             </section>
-                        </div>
+                        </div>  
+                    </section>
                 </div>
             </div>
         </section>

@@ -5,6 +5,10 @@
     --border-radius: .3rem;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     line-height: 1;
     font-size: 16px;
@@ -23,11 +27,6 @@ body {
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
-}
-
-.form-input {
-    width: 115%;
-    margin-left: -20px;
 }
 
 .card-buttons {
