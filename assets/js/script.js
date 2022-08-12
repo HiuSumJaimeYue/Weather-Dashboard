@@ -14,6 +14,24 @@ var cardsContainerEl = document.querySelector("#cards-container");
 var card5DaysContainerEl = document.querySelector("#card-5-Day");
 var cityButtonsEl = document.querySelector("#city-buttons");
 
+var loadcityList = function () {
+    newcityList = JSON.parse(localStorage.getItem("cityList"));
+
+    // if nothing in localStorage, create a new array to keep track
+    if (!newcityList) {
+        newcityList = [];
+    }
+
+    for (var i = 0; i < newcityList.length; i++) {
+        cityList.push(newcityList[i]);
+        createCityButton(newcityList[i]);
+    }
+};
+
+var savecityList = function () {
+    localStorage.setItem("cityList", JSON.stringify(cityList));
+};
+
 //get value from input element for city
 function formSubmit(event) {
     event.preventDefault();
@@ -28,7 +46,8 @@ function formSubmit(event) {
     }
 }
 
-var buttonClickHandler = function (event) {
+//Handler city button click
+var cityButtonClickHandler = function (event) {
     var city = event.target.getAttribute("data-city");
     if (city) {
         getGeoAPI(city);
@@ -54,7 +73,7 @@ var getWeatherAPI = function (longitude, latitude, cityName) {
                         cityList.push(cityName);
 
                         //save into localStorage
-                        localStorage.setItem("City history", JSON.stringify(cityList));
+                        savecityList();
 
                         //create Button for city
                         createCityButton(cityName);
@@ -124,7 +143,7 @@ var displayWeather = function (weatherData, city) {
 
     var iconImg = document.createElement('img');
     iconImg.src = iconSrc;
-    iconImg.alt = "weatherIcon";
+    iconImg.alt = "weatherIcon" + iconWeather;
     iconImg.classList.add("weatherImg");
 
     boxTitleEl.textContent = city + " (" + currentDate + ") ";
@@ -167,16 +186,16 @@ var displayWeather = function (weatherData, city) {
         var card5 = document.createElement("div");
         card5.classList.add("card", "card-5");
 
-        var cardDate = document.createElement("h3");
+        var cardDate = document.createElement("p");
         var nextDate = moment().add((i + 1), 'days').format('l');
         cardDate.textContent = nextDate;
-        cardDate.classList.add("card-title");
+        cardDate.classList.add("card-title-date");
 
         var iconImg2 = document.createElement('img');
         var cardIconWeather = currentDailyWeather.weather[0].icon;
         var iconSrc2 = "http://openweathermap.org/img/wn/" + cardIconWeather + "@2x.png";
         iconImg2.src = iconSrc2;
-        iconImg2.alt = "weatherIcon";
+        iconImg2.alt = "weatherIcon" + cardIconWeather;
         iconImg2.classList.add("weatherImg");
 
         var cardTempEl = document.createElement("p");
@@ -209,6 +228,7 @@ var askToInputAgain = function () {
     cardsContainerEl.style.display = 'none';
 }
 
+//Create city button
 var createCityButton = function (cityName) {
     var cityBtnEl = document.createElement("button");
     cityBtnEl.classList.add("btn", "btn-secondary");
@@ -217,5 +237,6 @@ var createCityButton = function (cityName) {
     cityButtonsEl.append(cityBtnEl);
 }
 
+loadcityList();
 cityFormEl.addEventListener("submit", formSubmit);
-cityButtonsEl.addEventListener("click", buttonClickHandler);
+cityButtonsEl.addEventListener("click", cityButtonClickHandler);

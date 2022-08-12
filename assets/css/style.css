@@ -71,8 +71,10 @@ body {
     padding: 1%;
 }
 
-.card-title {
-    font-size: 18px;
+.card-title,
+.box-title,
+.card-title-date {
+    font-weight: bold;
 }
 
 .card-5 {
@@ -85,6 +87,7 @@ body {
     width: 55px;
     height: 55px;
 }
-#weather-Info{
+
+#weather-Info {
     display: none;
 }
