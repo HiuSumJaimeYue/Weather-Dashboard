@@ -19,7 +19,7 @@ If you have searched before
 If you have never searched before ...       
 Before searching 
 ![Weather-Dashboard Preview 2](https://github.com/HiuSumJaimeYue/Weather-Dashboard/blob/main/screenshots/weatherDashboardPreview1.jpg "Weather-Dashboard Preview 2")            
-After successfully search for weather information for the requested city
+After successfully search for weather information for some requested cities
 ![Weather-Dashboard Preview 3](https://github.com/HiuSumJaimeYue/Weather-Dashboard/blob/main/screenshots/weatherDashboardPreview3.jpg "Weather-Dashboard Preview 3")       
 Or fail to get the information of the requested city   
 ![Weather-Dashboard Preview 4](https://github.com/HiuSumJaimeYue/Weather-Dashboard/blob/main/screenshots/weatherDashboardPreview4.jpg "Weather-Dashboard Preview 4")      
