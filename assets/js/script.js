@@ -21,7 +21,7 @@ var getWeatherAPI = function (longitude, latitude) {
     // make a request to the url
     fetch(apiUrl)
         .then(function (response) {
-            // request was successful
+            // request successful
             if (response.ok) {
                 response.json().then(function (data) {
                     console.log(data);
@@ -32,7 +32,7 @@ var getWeatherAPI = function (longitude, latitude) {
             }
         })
         .catch(function (error) {
-            // Notice this `.catch()` getting chained onto the end of the `.then()` method
+            // Alert when error
             alert("Unable to connect to OpenWeatherAPI");
         });
 };
@@ -44,7 +44,7 @@ var getGeoAPI = function (place) {
     // make a request to the url
     fetch(apiUrl)
         .then(function (response) {
-            // request was successful
+            // request successful
             if (response.ok) {
                 response.json().then(function (data) {
                     // console.log(data);
@@ -60,7 +60,7 @@ var getGeoAPI = function (place) {
             }
         })
         .catch(function (error) {
-            // Notice this `.catch()` getting chained onto the end of the `.then()` method
+            // Alert when error
             alert("Unable to connect to OpenWeatherGEOAPI");
         });
 }
@@ -114,8 +114,6 @@ var displayWeather = function (weatherData) {
     //5-Day Forecast
     for (var i = 0; i < 5; i++) {
         var currentDailyWeather = weatherData.daily[i];
-        var cardIconWeather = currentDailyWeather.weather[0].icon;
-        var iconSrc2 = "http://openweathermap.org/img/wn/" + cardIconWeather + "@2x.png";
 
         var card5 = document.createElement("div");
         card5.classList.add("card", "card-5");
@@ -125,7 +123,11 @@ var displayWeather = function (weatherData) {
         cardDate.textContent = nextDate;
         cardDate.classList.add("card-title");
 
+        
+
         var iconImg2 = document.createElement('img');
+        var cardIconWeather = currentDailyWeather.weather[0].icon;
+        var iconSrc2 = "http://openweathermap.org/img/wn/" + cardIconWeather + "@2x.png";
         iconImg2.src = iconSrc2;
         iconImg2.alt = "weatherIcon";
         iconImg2.classList.add("weatherImg");

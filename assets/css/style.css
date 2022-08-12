@@ -1,7 +1,7 @@
 :root {
     --primary: #2563ff;
     --secondary: #484b64;
-    /* --tertiary: #8bf4fe; */
+    --darker-yellow: #ffe149;
     --border-radius: .3rem;
 }
 
@@ -13,17 +13,9 @@
     border-radius: var(--border-radius);
 }
 
-.card-header {
-    margin-left: 11px;
-}
-
-.card-search {
-    margin-left: 10px;
-}
-
 .form-input {
-    width: 113%;
-    margin-left: -17px;
+    width: 115%;
+    margin-left: -20px;
 }
 
 .card-buttons {
@@ -31,12 +23,10 @@
     border-top: 2px solid black;
     border-radius: 0;
     text-align: center;
-    margin-left: 10px;
 }
 
 .btn {
     width: 100%;
-    width: 311px;
     margin: 5px 0;
     border-radius: var(--border-radius);
 }
@@ -53,8 +43,9 @@
     padding: 1%;
 }
 
+/* chosen darker yellow instead of yellow since it is easier to read the uvIndex */
 .moderate {
-    background: yellow;
+    background: var(--darker-yellow);
     color: white;
     border-radius: var(--border-radius);
     padding: 1%;
