@@ -6,12 +6,15 @@ var cityFormEl = document.querySelector("#city-form");
 var cityInputEl = document.querySelector("#cityname");
 
 var weatherInfoEl = document.querySelector("#weather-Info");
+var wrongCityMsgEl = document.querySelector("#wrong-city-msg");
+var boxEl = document.querySelector("#box-container");
 var boxTitleEl = document.querySelector("#box-city");
 var infoContainerEl = document.querySelector("#info-container");
+var cardsContainerEl = document.querySelector("#cards-container");
 var card5DaysContainerEl = document.querySelector("#card-5-Day");
 // var languageButtonsEl = document.querySelector("#language-buttons");
 
-//get value from input element for high scores
+//get value from input element for city
 function formSubmit(event) {
     event.preventDefault();
 
@@ -40,7 +43,7 @@ var getWeatherAPI = function (longitude, latitude, cityName) {
                 response.json().then(function (data) {
                     // console.log(data);
                     displayWeather(data, cityName);
-                    //If not in List add to List 
+                    //If not in List, add to List 
                     if (!cityList.includes(cityName)) {
                         cityList.push(cityName);
 
@@ -75,9 +78,7 @@ var getGeoAPI = function (place) {
                     //Not a name of a city
                     if (data.length < 1) {
                         //Request to type again
-                        //The requested city information cannot be reached. Please try again.
-                        console.log("empty");
-                        //askToInputAgain();
+                        askToInputAgain();
                     } else {
                         console.log(data);
                         //set longitude and latitude
@@ -101,6 +102,9 @@ var getGeoAPI = function (place) {
 var displayWeather = function (weatherData, city) {
     //show weather info
     weatherInfoEl.style.display = 'block';
+    boxEl.style.display = 'block';
+    cardsContainerEl.style.display = 'block';
+    wrongCityMsgEl.style.display = 'none';
 
     //Clear old info
     infoContainerEl.innerHTML = "";
@@ -189,6 +193,14 @@ var displayWeather = function (weatherData, city) {
 //get the temp from Fahrenheit to Celcius
 var FahrenheitToCelcius = function (fahrenheit) {
     return ((fahrenheit - 32) * 5 / 9).toFixed(2);
+}
+
+//Show wrong city msg
+var askToInputAgain = function () {
+    weatherInfoEl.style.display = 'block';
+    wrongCityMsgEl.style.display = 'block';
+    boxEl.style.display = 'none';
+    cardsContainerEl.style.display = 'none';
 }
 
 cityFormEl.addEventListener("submit", formSubmit);
