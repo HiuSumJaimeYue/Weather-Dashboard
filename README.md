@@ -23,8 +23,8 @@ After successfully search for weather information for the requested city
 ![Weather-Dashboard Preview 3](https://github.com/HiuSumJaimeYue/Weather-Dashboard/blob/main/screenshots/weatherDashboardPreview3.jpg "Weather-Dashboard Preview 3")       
 Or fail to get the information of the requested city   
 ![Weather-Dashboard Preview 4](https://github.com/HiuSumJaimeYue/Weather-Dashboard/blob/main/screenshots/weatherDashboardPreview4.jpg "Weather-Dashboard Preview 4")      
-View on Tablet
+View on Tablet                           
 ![Weather-Dashboard Preview 5](https://github.com/HiuSumJaimeYue/Weather-Dashboard/blob/main/screenshots/weatherDashboardPreview5.jpg "Weather-Dashboard Preview 5")      
-View on mobile
+View on mobile                       
 ![Weather-Dashboard Preview 6](https://github.com/HiuSumJaimeYue/Weather-Dashboard/blob/main/screenshots/weatherDashboardPreview6.jpg "Weather-Dashboard Preview 6")      
 ![Weather-Dashboard Preview 7](https://github.com/HiuSumJaimeYue/Weather-Dashboard/blob/main/screenshots/weatherDashboardPreview7.jpg "Weather-Dashboard Preview 7")  
